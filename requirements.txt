@@ -1,0 +1,18 @@
+# 核心框架
+Flask==2.3.3
+Flask-Login==0.6.2
+Flask-SQLAlchemy==3.1.1
+gunicorn
+
+# 数据库与时间管理
+Werkzeug==2.3.7
+pytz==2023.3
+
+# 环境变量管理
+python-dotenv==1.0.0
+
+# 数据库迁移、数据处理、导出、图片处理
+Flask-Migrate==4.0.5
+Flask-WTF==1.1.1
+pandas
+openpyxl
