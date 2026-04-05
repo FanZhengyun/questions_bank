@@ -23,3 +23,6 @@ __pycache__/
 # 忽略 Visual Studio Code 的配置文件
 .vscode/settings.json
 .vscode/tasks.json
+
+# 忽略 md 文件
+*.md
