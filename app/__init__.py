@@ -1,17 +1,25 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config import Config
+import os
 
 db = SQLAlchemy()
 
-def create_app(config_class=Config):
-    app = Flask(__name__, instance_path=None, instance_relative_config=True)
-    app.config.from_object(config_class)
+def create_app():
+    env = os.environ.get('FLASK_ENV', 'development')
+    app = Flask(__name__, instance_relative_config=True)
+    
+    if env == 'production':
+        # 使用生产配置的工厂方法获取配置字典
+        from config import ProductionConfig
+        app.config.update(ProductionConfig.get_config())
+    else:
+        from config import config
+        app.config.from_object(config[env])
 
+    # 初始化数据库
     db.init_app(app)
 
     # 确保 instance 文件夹存在
-    import os
     try:
         os.makedirs(app.instance_path)
     except OSError:
