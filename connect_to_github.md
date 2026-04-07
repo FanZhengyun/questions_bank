@@ -8,6 +8,10 @@ ssh-keygen -t ed25519 -C "fan.01@163.com"
 
 添加 SSH Key 到 Github
 
+根据代理端口设置git 配置文件
+git config --global http.proxy http://127.0.0.1:10809   # 10809需要调整
+git config --global https.proxy http://127.0.0.1:10809  # 10809需要调整
+
 添加 Github 远程仓库
 git remote set-rul origin git@github.com:FanZhengyun/questions_bank.git
 
